@@ -9,6 +9,8 @@ import HomePage from './pages/HomePage/Home.page';
 import ContactPage from './pages/ContactPage/Contact.page';
 import AboutPage from './pages/AboutPage/About.page';
 import DownloadComponent from './components/download/download.comp';
+import LoginForm from './components/login/login.comp';
+import MainPage from './pages/MainPage/MainPage.page';
 
 // Import image
 import WebLogo from "./assets/reporaLogo.png"
@@ -22,6 +24,10 @@ const App: React.FC = () => {
   const [isDownloadForm, setIsDownloadForm] = useState<boolean>(false)
   const [isAboutPage, setIsAboutPage] = useState<boolean>(false)
   const [isContactPage, setIsContactPage] = useState<boolean>(false)
+  const [isLoginForm, setIsLoginForm] = useState<boolean>(false)
+
+  // Path name
+  const pathName = useLocation()
 
   // Handler
   const handlePage = (page: string) => {
@@ -59,30 +65,45 @@ const App: React.FC = () => {
     setIsDownloadForm(false)
   }
 
-  return (
-    <div className='App'>
-      <div className='navbarContainer'>
-        <div className='navbarContainer__webLogo'>
-          <img src={WebLogo} alt="Logo web" />
-        </div>
+  const openLogin = () => {
+    setIsLoginForm(true)
+  }
 
-        <nav className='navbar'>
-          <Link className={`navbarBtn ${isHomePage ? "chosen" : ""}`} to="/" onClick={() => { handlePage("home") }}>Home</Link>
-          <p className='navbarBtn' onClick={openDownload}>Download</p>
-          <Link className={`navbarBtn ${isAboutPage ? "chosen" : ""}`} to="/about" onClick={() => { handlePage("about") }}>About us</Link>
-          <Link className={`navbarBtn ${isContactPage ? "chosen" : ""}`} to="/contact" onClick={() => { handlePage("contact") }} >Contact</Link>
-          <p className='navbarBtn specNavbarBtn'>Go to System</p>
-        </nav>
-      </div>
+  const closeLogin = () => {
+    setIsLoginForm(false)
+  }
+
+  return (
+    <div className={`App ${pathName.pathname == "/main" ? "main" : ""}`}>
+      {pathName.pathname == "/main" ? "" : (
+        <div className='navbarContainer'>
+          <div className='navbarContainer__webLogo'>
+            <img src={WebLogo} alt="Logo web" />
+          </div>
+
+          <nav className='navbar'>
+            <Link className={`navbarBtn ${isHomePage ? "chosen" : ""}`} to="/" onClick={() => { handlePage("home") }}>Home</Link>
+            <p className='navbarBtn' onClick={openDownload}>Download</p>
+            <Link className={`navbarBtn ${isAboutPage ? "chosen" : ""}`} to="/about" onClick={() => { handlePage("about") }}>About us</Link>
+            <Link className={`navbarBtn ${isContactPage ? "chosen" : ""}`} to="/contact" onClick={() => { handlePage("contact") }} >Contact</Link>
+            <p className='navbarBtn specNavbarBtn' onClick={openLogin}>Go to System</p>
+          </nav>
+        </div>
+      )}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/main" element={<MainPage />}></Route>
       </Routes>
 
       {!isDownloadForm ? "" : (
         <DownloadComponent closeDownload={closeDownload} />
+      )}
+
+      {!isLoginForm ? "" : (
+        <LoginForm closeLogin={closeLogin} />
       )}
     </div>
   )

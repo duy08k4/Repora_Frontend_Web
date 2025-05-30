@@ -1,0 +1,85 @@
+.LoginContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm {
+    height: fit-content;
+    width: fit-content;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    border-radius: 10px;
+
+    h1 {
+        text-transform: uppercase;
+    }
+}
+
+.loginForm__inputForm {
+    height: fit-content;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loginForm__inputContainer {
+    height: fit-content;
+    width: fit-content;
+}
+
+.loginForm__inputContainer--input {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    /* background-color: red; */
+    box-shadow: var(--main-boxShadow);
+    border-radius: 10px;
+
+    i {
+        font-size: 24px;
+    }
+
+    input {
+        outline: none;
+        line-height: 2.5;
+        width: 350px;
+        height: fit-content;
+        font-size: 16px;
+        padding-left: 20px;
+        border: none;
+        border-left: 1px solid #808080;
+    }
+}
+
+.loginForm__btnContainer {
+    height: fit-content;
+    width: 100%;
+}
+
+.loginBtn {
+    height: fit-content;
+    width: 100%;
+    color: #ffffff;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 400;
+    background-color: var(--main-color);
+    padding: 15px 0;
+    border-radius: 10px;
+}

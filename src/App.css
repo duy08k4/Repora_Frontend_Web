@@ -7,6 +7,15 @@
   gap: 40px;
 }
 
+.App.main {
+  height: 100%;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 :root {
   --main-boxShadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
 
@@ -44,7 +53,7 @@
     box-shadow: var(--main-boxShadow);
     border-radius: 40px;
     padding: 10px 40px;
-    
+
     .navbarBtn {
       user-select: none;
       height: 100%;
@@ -84,4 +93,3 @@
     }
   }
 }
-

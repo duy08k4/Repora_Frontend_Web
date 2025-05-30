@@ -1,0 +1,262 @@
+.manageStaffContainer {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manageStaffContainer--container {
+    height: fit-content;
+    /* max-height: 600px !important; */
+    width: fit-content;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 20px;
+}
+
+.manageStaffForm {
+    height: fit-content;
+    max-height: 100%;
+    width: 800px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 40px;
+    border-radius: 10px;
+}
+
+.manageStaffForm__header {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .manageStaffForm__btnBox {
+        height: fit-content;
+        width: fit-content;
+        display: flex;
+        gap: 10px;
+
+        button {
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border: none;
+        }
+
+        .manageStaffForm__btnBox--add {
+            background-color: limegreen;
+        }
+
+        .manageStaffForm__btnBox--add.cancel {
+            background-color: var(--main-color);
+        }
+
+        .manageStaffForm__btnBox--remove {
+            background-color: red;
+        }
+
+        .manageStaffForm__btnBox--remove.cancel {
+            background-color: var(--main-color);
+        }
+
+        .manageStaffForm__btnBox--applyRemove {
+            background-color: red;
+        }
+    }
+}
+
+.manageStaffForm__staffList {
+    width: 100%;
+    height: fit-content;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.manageStaffForm__staffTag {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    border-bottom: 1px solid lightgray;
+
+    .manageStaffForm__staffTag__checkBox {
+        flex: 0.5;
+
+        input {
+            transform: scale(1.5);
+        }
+    }
+
+    .manageStaffForm__staffTag__infoBox--avartar {
+        flex: 1;
+
+        .manageStaffForm__avartarBox {
+            height: 50px;
+            width: 50px;
+            overflow: hidden;
+            border-radius: 50%;
+
+            img {
+                height: 100%;
+            }
+        }
+    }
+
+    .manageStaffForm__staffTag__infoBox--name {
+        flex: 3;
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .manageStaffForm__staffTag__infoBox--jobDate {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+
+        p {
+            font-size: 14px;
+            color: gray;
+        }
+    }
+
+    .manageStaffForm__staffTag__infoBox--status {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        .off {
+            background-color: rgba(255, 0, 0, 0.5);
+            padding: 5px 15px;
+            color: white;
+            font-weight: bolder;
+            border-radius: 5px;
+        }
+
+        .free {
+            background-color: rgba(50, 205, 50, 0.5);
+            padding: 5px 15px;
+            color: white;
+            font-weight: bolder;
+            border-radius: 5px;
+        }
+
+        .busy {
+            background-color: rgba(255, 166, 0, 0.5);
+            padding: 5px 15px;
+            color: white;
+            font-weight: bolder;
+            border-radius: 5px;
+        }
+    }
+}
+
+.manageStaffForm__staffTag:hover {
+    cursor: grab;
+    background-color: #eeeeee;
+    border-radius: 15px;
+    border: none;
+}
+
+.manageStaffForm__amountStaffContainer {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    .removeStaffOption {
+        height: fit-content;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        input {
+            transform: scale(1.5);
+        }
+
+        p {
+            font-weight: 600;
+        }
+    }
+}
+
+.confirmContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmForm {
+    height: fit-content;
+    width: 450px;
+    background-color: #ffffff;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+    border-radius: 10px;
+
+    input {
+        outline: none;
+        text-align: center;
+        height: fit-content;
+        width: 100%;
+        font-size: 16px;
+        line-height: 3;
+        border: none;
+        box-shadow: var(--main-boxShadow);
+        border-radius: 10px;
+    }
+
+    .confirmForm__btnBox {
+        height: fit-content;
+        width: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            height: fit-content;
+            width: fit-content;
+            font-size: 16px;
+            padding: 8px 40px;
+            border: none;
+        }
+
+        .confirmForm__btnBox--close {
+            background-color: #dddddd;
+        }
+
+        .confirmForm__btnBox--confirm {
+            color: white;
+            background-color: limegreen;
+        }
+    }
+}

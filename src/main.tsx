@@ -1,6 +1,8 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import 'leaflet/dist/leaflet.css';
+
 
 // import react-router-dom
 import { BrowserRouter } from 'react-router-dom'
