@@ -79,8 +79,7 @@
 
 .manageStaffForm__staffList {
     width: 100%;
-    height: fit-content;
-    max-height: 400px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -137,34 +136,13 @@
         }
     }
 
-    .manageStaffForm__staffTag__infoBox--status {
+    .manageStaffForm__staffTag__infoBox--gmail {
         flex: 1;
-        display: flex;
-        justify-content: center;
-
-        .off {
-            background-color: rgba(255, 0, 0, 0.5);
-            padding: 5px 15px;
-            color: white;
-            font-weight: bolder;
-            border-radius: 5px;
-        }
-
-        .free {
-            background-color: rgba(50, 205, 50, 0.5);
-            padding: 5px 15px;
-            color: white;
-            font-weight: bolder;
-            border-radius: 5px;
-        }
-
-        .busy {
-            background-color: rgba(255, 166, 0, 0.5);
-            padding: 5px 15px;
-            color: white;
-            font-weight: bolder;
-            border-radius: 5px;
-        }
+        font-size: 14px;
+        color: black;
+        background-color: #dddddd;
+        padding: 5px 10px;
+        border-radius: 10px;
     }
 }
 

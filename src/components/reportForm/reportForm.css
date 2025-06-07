@@ -1,0 +1,251 @@
+.reportContainer {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.reportForm {
+    height: fit-content;
+    width: 500px;
+    background-color: #ffffff;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 20px;
+
+    .reportForm__infoContainer {
+        height: fit-content;
+        width: 100%;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .reportForm__infoContainer--incidentLevel {
+
+        .reportForm__infoContainer__incidentTag {
+            height: 50px;
+            width: 40%;
+            background-color: #ffffff;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+            i {
+                color: #ffffff;
+                font-size: 24px;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+            }
+            
+            p {
+                color: #ffffff;
+                font-weight: bolder;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+            }
+        }
+
+        .reportForm__infoContainer__incidentTag.normal {
+            background-color: lime;
+        }
+
+        .reportForm__infoContainer__incidentTag.severe {
+            background-color: orange;
+        }
+        
+        .reportForm__infoContainer__incidentTag.critical {
+            background-color: red;
+        }
+    }
+
+    .reportForm__infoContainer--baseInfo {
+        align-items: center;
+
+        .reportForm__infoContainer--baseInfo--avatarBox {
+            height: 150px;
+            width: fit-content;
+            /* max-height: 150px;
+            max-width: 80%; */
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        .reportForm__infoContainer--baseInfo--name {
+            color: #3e3f46;
+        }
+
+        .reportForm__infoContainer--baseInfo--id {
+            font-size: 16px;
+            color: #808080;
+        }
+    }
+
+    .reportForm__infoContainer__infoBox {
+        height: fit-content;
+        width: 100%;
+        background-color: transparent;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+
+        .reportForm__infoContainer__infoBox--content {
+            font-size: 16px;
+            color: gray;
+            font-weight: 600;
+        }
+
+        input {
+            height: 50px;
+            width: 100%;
+            color: black;
+            font-size: 18px;
+            padding: 0 20px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    .reportForm__currentStaffList {
+        height: 200px;
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        margin-top: 10px;
+
+        .reportForm__currentStaffList__titleBox {
+            height: fit-content;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .reportForm__currentStaffList__taskAssignment--btn {
+                height: fit-content;
+                width: fit-content;
+                font-size: 14px;
+                font-weight: 600;
+                color: #ffffff;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                background-color: limegreen;
+                border: none;
+                padding: 8px 20px;
+                border-radius: 10px;
+            }
+        }
+
+        .reportForm__currentStaffList--list {
+            /* height: 100%; */
+            width: 100%;
+            overflow: auto;
+            display: flex;
+            gap: 15px;
+            flex-direction: column-reverse;
+            padding: 5px;
+
+            .reportForm__currentStaffList__staffTag {
+                height: fit-content;
+                width: 100%;
+                background-color: #ffffff;
+                display: flex;
+                gap: 15px;
+                align-items: center;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+                padding: 10px 20px;
+                border-radius: 10px;
+
+                .reportForm__currentStaffList__staffTag--imgBox {
+                    height: 50px;
+                    width: 50px;
+                    background-color: gray;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    border-radius: 50%;
+
+                    img {
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+        .reportForm__currentStaffList--list::-webkit-scrollbar {
+            background-color: white;
+            width: 5px;
+        }
+
+        .reportForm__currentStaffList--list::-webkit-scrollbar-thumb {
+            background-color: white;
+            background-color: gray;
+            border-radius: 10px;
+        }
+    }
+}
+
+.sendTaskForm {
+    height: 550px;
+    width: 500px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+
+    .sendTaskFormList {
+        width: 100%;
+        flex: 1;
+        overflow: auto;
+    }
+
+    .sendTaskFormBtnContainer {
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+
+        .sendTaskFormBtnContainer--apply {
+            height: fit-content;
+            width: 80%;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #808080;
+            padding: 15px 0;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .sendTaskFormBtnContainer--apply:hover {
+            background-color: #3e3f46;
+        }
+    }
+}

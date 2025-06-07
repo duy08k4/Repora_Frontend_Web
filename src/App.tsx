@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 // Import react-router-dom
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 
 // Import component
 import HomePage from './pages/HomePage/Home.page';
@@ -18,6 +18,13 @@ import WebLogo from "./assets/reporaLogo.png"
 // Import css
 import './App.css'
 
+// Import service
+import { autoLoginHandler } from './handlers/loginAccount.handler';
+
+// Import custom hook
+import { useCache } from './hooks/cache/cache';
+import { cacheSetGmail } from './redux/reducers/admin.reducer';
+
 const App: React.FC = () => {
   // State
   const [isHomePage, setIsHomePage] = useState<boolean>(true)
@@ -28,6 +35,12 @@ const App: React.FC = () => {
 
   // Path name
   const pathName = useLocation()
+  const navigate = useNavigate()
+
+
+  // Custom hook
+  const { cacheSetData } = useCache()
+
 
   // Handler
   const handlePage = (page: string) => {
@@ -65,8 +78,13 @@ const App: React.FC = () => {
     setIsDownloadForm(false)
   }
 
-  const openLogin = () => {
-    setIsLoginForm(true)
+  const openLogin = async () => {
+    const res_autoLoginHandler = await autoLoginHandler()
+
+    if (res_autoLoginHandler.status == 200) {
+      cacheSetData(cacheSetGmail({ inputGmail: res_autoLoginHandler.data.data.gmail }))
+      navigate("/main")
+    } else setIsLoginForm(true)
   }
 
   const closeLogin = () => {
