@@ -1,5 +1,3 @@
-import type { interface_Login_Serv_data } from "../type/interface_Login"
-
 import type { interface_Login_LoginHandler } from "../type/interface_Login"
 
 import { sha256 } from "js-sha256"

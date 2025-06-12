@@ -1,5 +1,5 @@
 // Import libraries
-import React, { createContext, useContext, useEffect, useRef, useState } from "react"
+import React, { createContext, useContext, useRef } from "react"
 
 // Import interface
 import type {
@@ -13,7 +13,7 @@ import type {
 import type { AppDispatch } from "../../redux/store"
 
 // Import firebase
-import { collection, doc, getDoc, getDocs, onSnapshot } from "firebase/firestore"
+import { collection, onSnapshot } from "firebase/firestore"
 import { db } from "../../config/firebaseSDK"
 import { useDispatch } from "react-redux"
 

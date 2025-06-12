@@ -1,5 +1,5 @@
 //  Import libraries
-import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useContext, useEffect, useRef } from "react";
 
 // Import Socket
 import { io, Socket } from "socket.io-client";
@@ -8,8 +8,7 @@ import { io, Socket } from "socket.io-client";
 import type { interface__socketContext, interface__socketProviderProps } from "../../type/interface__Socket";
 
 // Import redux
-import { useSelector } from "react-redux";
-import type { RootState } from "../../redux/store";
+
 
 // Import custom
 import { useCache } from "../cache/cache";

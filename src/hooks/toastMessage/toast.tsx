@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState } from "react";
-import type { ReactElement } from "react";
 import "./toast.css";
 
 // Import interface

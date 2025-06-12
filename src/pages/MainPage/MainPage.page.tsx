@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Import leaflet
-import { MapContainer, TileLayer, Marker, Polyline, Popup } from 'react-leaflet';
-import L, { Marker as LeafletMarker } from 'leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import L from 'leaflet';
 
 // Import component
 import ManageStaff from "../../components/mainPage__manageStaff/mainPage__manageStaff.comp";
@@ -13,7 +13,6 @@ import ReportForm from "../../components/reportForm/reportForm";
 
 // Custom hooks
 import { useToast } from "../../hooks/toastMessage/toast";
-import { useSpinner } from "../../hooks/spinner/spinner";
 import { useCache } from "../../hooks/cache/cache";
 
 // Import css
@@ -35,7 +34,6 @@ import { cacheSetGmail } from "../../redux/reducers/admin.reducer";
 // Import service
 import { autoLoginHandler } from "../../handlers/loginAccount.handler";
 import { sha256 } from "js-sha256";
-import { object } from "motion/react-client";
 import { logoutAccount } from "../../services/logout.serv";
 
 
@@ -109,12 +107,10 @@ const MainPage: React.FC = () => {
 
     // Hook
     const { addToast } = useToast()
-    const { openSpinner } = useSpinner()
     const { cacheSetData, enableListener_userInformation_staff, enableListener_reportInformation, enableListener_staffLocation_listStaffOnline } = useCache()
 
     // State map
     const mapRef = useRef<any>(null);
-    const [position, setPosition] = useState<[number, number]>([10.8231, 106.6297]);
     const [staffLocate, setStaffLocate] = useState<string>("")
 
     // Redux
@@ -130,6 +126,10 @@ const MainPage: React.FC = () => {
         enableListener_reportInformation()
         enableListener_staffLocation_listStaffOnline()
     }, [])
+
+    useEffect(() => {
+        
+    }, [reportPosition])
 
     useEffect(() => { // Auto login
         (async () => {

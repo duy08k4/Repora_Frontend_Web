@@ -30,7 +30,6 @@ const ManageStaff: React.FC<interface_MainPage_Props> = ({ closeManageStaff }) =
     const [isConfirmForm, setIsConfirmForm] = useState<boolean>(false)
 
     const manageStaffForm = useRef<HTMLDivElement>(null)
-    const confirmForm = useRef<HTMLDivElement>(null)
 
     // Data
     const [adminPasswordInput, setAdminPasswordInput] = useState<string>("")

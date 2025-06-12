@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { DocumentData } from "firebase/firestore";
 import type { interface__staff__reducer, staffInformationState } from "../../type/interface__Auth";
 
 // Import interface

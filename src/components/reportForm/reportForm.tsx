@@ -1,6 +1,6 @@
 // Import libraries
 import type React from "react"
-import { use, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { sha256 } from "js-sha256"
 
 // Import interface
@@ -26,7 +26,6 @@ import { taskAssignment } from "../../services/tastAssignment.serv"
 
 const ReportForm: React.FC<interface__ReportForm__props> = ({ closeReportForm, report, reportID }) => {
     // State
-    const [reportChange, setReportChange] = useState<boolean>(false)
     const [isSendTaskForm, setIsSendTaskForm] = useState<boolean>(false)
     const [newListStaff, setNewListStaff] = useState<Record<string, interface__staff__reducer>>({})
     const [listTaskAssingment, setListTaskAssignment] = useState<string[]>([])
