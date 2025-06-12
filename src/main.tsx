@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')!).render(
     <SpinnerProvider>
       <ToastProvider>
         <CacheProvider>
-          <BrowserRouter>
+          <BrowserRouter basename='/'>
             <SocketProvider>
               <App />
             </SocketProvider>
