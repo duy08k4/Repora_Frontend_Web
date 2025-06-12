@@ -43,8 +43,15 @@ const HomePage: React.FC = () => {
                     </div>
 
                     <div className="platformImgContainer__element platformImgContainer--mobile">
-                        <h2>MOBILE - USER</h2>
-                        <img src="https://easydrawingguides.com/wp-content/uploads/2020/11/Phone-Step-10.png" alt="" />
+                        <div className="platformImgContainer--mobile--staff">
+                            <h2>MOBILE - USER</h2>
+                            <img src="https://easydrawingguides.com/wp-content/uploads/2020/11/Phone-Step-10.png" alt="" />
+                        </div>
+                        
+                        <div className="platformImgContainer--mobile--user">
+                            <h2>MOBILE - USER</h2>
+                            <img src="https://easydrawingguides.com/wp-content/uploads/2020/11/Phone-Step-10.png" alt="" />
+                        </div>
 
                     </div>
                 </div>

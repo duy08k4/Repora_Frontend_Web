@@ -20,6 +20,7 @@ import { useDispatch } from "react-redux"
 // Import reducer
 import { cacheAddListStaff } from "../../redux/reducers/staff.reducer"
 import { cacheAddListReport } from "../../redux/reducers/report.reducer"
+import { cacheSetStaffStatus } from "../../redux/reducers/staffLocation.reducer"
 
 // Import services
 
@@ -41,6 +42,7 @@ export const CacheProvider: React.FC<interface__authProviderProps> = ({ children
     // State
     const subscribe_staffInformation = useRef<(() => void) | undefined>(undefined);
     const subscribe_reportInformation = useRef<(() => void) | undefined>(undefined);
+    const subscribe_staffLocation_listStaffOnline = useRef<(() => void) | undefined>(undefined);
 
 
     // Redux
@@ -80,6 +82,25 @@ export const CacheProvider: React.FC<interface__authProviderProps> = ({ children
 
     }
 
+    const enableListener_staffLocation_listStaffOnline = async () => { // Get staff status
+        if (subscribe_staffLocation_listStaffOnline.current) {
+            return;
+        }
+
+        const staffStatusCollection = collection(db, "staffStatus");
+
+        subscribe_staffLocation_listStaffOnline.current = onSnapshot(staffStatusCollection, (snapshot) => {
+            const staffStatusObj: { [key: string]: string } = {};
+
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                staffStatusObj[doc.id] = data.status;
+            });
+
+            cacheSetData(cacheSetStaffStatus(staffStatusObj));
+        });
+    };
+
     const enableListener_reportInformation = () => { //Get report Information
 
         if (subscribe_reportInformation.current) {
@@ -104,11 +125,19 @@ export const CacheProvider: React.FC<interface__authProviderProps> = ({ children
 
     }
 
+
     // Off Listener
     const disableListener_userInformation_staff = () => {
         if (subscribe_staffInformation.current) {
             subscribe_staffInformation.current()
             subscribe_staffInformation.current = undefined
+        }
+    }
+
+    const disableListener_staffStatus = () => {
+        if (subscribe_staffLocation_listStaffOnline.current) {
+            subscribe_staffLocation_listStaffOnline.current()
+            subscribe_staffLocation_listStaffOnline.current = undefined
         }
     }
 
@@ -125,9 +154,11 @@ export const CacheProvider: React.FC<interface__authProviderProps> = ({ children
 
             enableListener_userInformation_staff,
             enableListener_reportInformation,
+            enableListener_staffLocation_listStaffOnline,
 
             disableListener_userInformation_staff,
             disableListener_reportInformation,
+            disableListener_staffStatus,
         }}>
             {children}
         </CacheContext.Provider>

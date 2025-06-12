@@ -63,12 +63,15 @@ const StaffRegisterForm: React.FC = () => {
             file: imageSelected!
         }).then((data) => {
             if (data.status == 200) {
+                setNewStaffGmail("")
+                setNewStaffName("")
+                setImageSelected(null)
                 addToast({
                     typeToast: "s",
                     content: data.data.mess,
                     duration: 5
                 })
-            } else if (data.status == 400) {
+            } else if (data.status == 404) {
                 addToast({
                     typeToast: "e",
                     content: data.data.mess,

@@ -32,7 +32,7 @@
     align-items: center;
     background-color: #ffffff;
     padding: 0 15px;
-    
+
     h2 {
         color: #3e3f46;
     }
@@ -132,6 +132,8 @@
         height: fit-content;
         width: fit-content;
         font-size: 16px;
+        display: flex;
+        gap: 10px;
         padding: 10px 20px;
         border: none;
         border-radius: 10px;
@@ -256,6 +258,7 @@
 
     .logoApp {
         position: relative;
+
         img {
             height: 50%;
         }
@@ -344,7 +347,7 @@
                 color: lime;
                 font-size: 24px;
             }
-            
+
             .fa-stopwatch {
                 color: orange;
                 font-size: 24px;
@@ -359,4 +362,109 @@
 
 .reportRow:hover {
     background-color: #eeeeee;
+}
+
+
+.imgReportShowcaseContainer {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .imgReportShowcaseForm {
+        height: fit-content;
+        max-width: 80%;
+        width: fit-content;
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+}
+
+
+
+
+/* Custom marker */
+.report__customMarker {
+    .reportMarker {
+        height: 50px;
+        width: 50px;
+        background-color: transparent;
+    }
+
+    .fa-flag {
+        color: red;
+        font-size: 40px;
+    }
+}
+
+
+.staff__customMarker {
+    .targetMarker {
+        height: fit-content;
+        width: fit-content;
+        transform: translate(0, 0);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infoBox {
+        position: relative;
+        height: fit-content;
+        width: fit-content;
+        background-color: #3e3f46;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
+
+    .infoBox::after {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 0;
+        width: 0;
+
+        border: solid 10px;
+        border-top-color: #3e3f46;
+        border-bottom-color: transparent !important;
+        border-right-color: transparent !important;
+        border-left-color: transparent !important;
+    }
+
+    .markerStaffName {
+        width: fit-content;
+        color: white;
+        font-size: 16px;
+    }
+
+    .targetMarker__imgBox {
+        height: 70px;
+        width: 70px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+        border-radius: 50%;
+        background-color: transparent;
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
 }

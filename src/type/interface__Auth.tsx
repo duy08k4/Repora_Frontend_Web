@@ -7,10 +7,12 @@ interface interface__authContext {
 
     enableListener_userInformation_staff: () => void,
     enableListener_reportInformation: () => void,
+    enableListener_staffLocation_listStaffOnline: () => void
 
     // Off listener
     disableListener_userInformation_staff: () => void,
-    disableListener_reportInformation: () => void
+    disableListener_reportInformation: () => void,
+    disableListener_staffStatus: () => void
 }
 
 interface interface__authProviderProps {
@@ -52,7 +54,8 @@ interface interface__report__reducer {
     time: string,
     position: [number, number],
     imgCode: string,
-    staff: [],
+    staff: string[],
+    activeStaff: string[],
     state: string
 }
 
