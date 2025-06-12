@@ -9,22 +9,26 @@ import { ToastProvider } from './hooks/toastMessage/toast.tsx';
 import { CacheProvider } from './hooks/cache/cache.tsx';
 import { SpinnerProvider } from './hooks/spinner/spinner.tsx';
 import { SocketProvider } from './hooks/socket/socket.tsx';
+import React from 'react';
 
 // import react-router-dom
 import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
-  <Provider store={store}>
-    <SpinnerProvider>
-      <ToastProvider>
-        <CacheProvider>
-          <BrowserRouter>
-            <SocketProvider>
-              <App />
-            </SocketProvider>
-          </BrowserRouter>
-        </CacheProvider>
-      </ToastProvider>
-    </SpinnerProvider>
-  </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <SpinnerProvider>
+        <ToastProvider>
+          <CacheProvider>
+            <BrowserRouter>
+              <SocketProvider>
+                <App />
+              </SocketProvider>
+            </BrowserRouter>
+          </CacheProvider>
+        </ToastProvider>
+      </SpinnerProvider>
+    </Provider>
+
+  </React.StrictMode>
 )
