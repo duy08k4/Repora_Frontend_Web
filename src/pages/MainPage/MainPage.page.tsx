@@ -342,7 +342,7 @@ const MainPage: React.FC = () => {
                             attribution={`${layerAttribution.current[typeLayer]}`}
                         />
 
-                        {listReport.map((report, index) => {
+                        {listReport.length > 0 && listReport.map((report, index) => {
                             return (
                                 <Marker
                                     key={index}
@@ -357,7 +357,9 @@ const MainPage: React.FC = () => {
 
                         {Object.values(staffLocation).length > 0 && Object.values(staffLocation).map((location, index) => {
                             const staff = newStaffStructure[Object.keys(staffLocation)[index]]
-                            return <Marker key={index} position={location} icon={createStaffMarker(staff.avatarCode, staff.username)}></Marker>
+                            if (staff) {
+                                return <Marker key={index} position={location} icon={createStaffMarker(staff.avatarCode, staff.username)}></Marker>
+                            }
                         })}
 
                     </MapContainer>

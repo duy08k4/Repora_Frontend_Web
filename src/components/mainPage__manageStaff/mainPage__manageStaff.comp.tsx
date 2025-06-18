@@ -7,7 +7,7 @@ import { sha256 } from "js-sha256"
 import StaffRegisterForm from "../staffRegisterForm/staffRegisterForm.comp"
 
 // Import interface
-import type { interface_MainPage_Props } from "../../type/interface_MainPage"
+import type { interface_MainPage_ManageStaff_Props } from "../../type/interface_MainPage"
 
 // Impot custom hook
 import { useToast } from "../../hooks/toastMessage/toast"
@@ -23,7 +23,7 @@ import { removeStaff } from "../../services/removeStaff.serv"
 // Import css
 import "./mainPage__manageStaff.comp.css"
 
-const ManageStaff: React.FC<interface_MainPage_Props> = ({ closeManageStaff }) => {
+const ManageStaff: React.FC<interface_MainPage_ManageStaff_Props> = ({ closeManageStaff }) => {
     // State
     const [isAddNewStaff, setIsAddNewStaff] = useState<boolean>(false)
     const [isRemoveStaff, setIsRemoveStaff] = useState<boolean>(false)

@@ -11,18 +11,30 @@
   --main-color: #3e3f46;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   background-color: var(--base-color-bg) !important;
+  /* background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 1px, transparent 1px); */
+  background-image: radial-gradient(lightgray 2px, transparent 0);
+  background-size: 150px 150px;
+  /* Kích thước ô vuông */
 }
 
 #root {
   position: relative;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
   background-color: transparent !important;
+  scroll-behavior: smooth;
+}
+
+#root::-webkit-scrollbar {
+  display: none;
 }
 
 button:hover {

@@ -63,9 +63,6 @@ const StaffRegisterForm: React.FC = () => {
             file: imageSelected!
         }).then((data) => {
             if (data.status == 200) {
-                setNewStaffGmail("")
-                setNewStaffName("")
-                setImageSelected(null)
                 addToast({
                     typeToast: "s",
                     content: data.data.mess,
@@ -86,6 +83,9 @@ const StaffRegisterForm: React.FC = () => {
 
                 navigate("/")
             }
+            setNewStaffGmail("")
+            setNewStaffName("")
+            setImageSelected(null)
 
             closeSpinner()
         }).catch((error) => {
@@ -95,6 +95,10 @@ const StaffRegisterForm: React.FC = () => {
                 content: "Can't proccess...1",
                 duration: 5
             })
+
+            setNewStaffGmail("")
+            setNewStaffName("")
+            setImageSelected(null)
 
             closeSpinner()
         })

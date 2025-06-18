@@ -1,4 +1,4 @@
-interface interface_MainPage_Props {
+interface interface_MainPage_ManageStaff_Props {
     closeManageStaff: () => void
 }
 
@@ -17,7 +17,7 @@ interface interface_MainPage_RemoveStaff_Serv {
 }
 
 export type {
-    interface_MainPage_Props,
+    interface_MainPage_ManageStaff_Props,
     interface_MainPage_AddStaff_Serv,
     interface_MainPage_RemoveStaff_Serv
 }

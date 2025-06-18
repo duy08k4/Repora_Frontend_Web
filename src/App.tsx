@@ -132,10 +132,10 @@ const App: React.FC = () => {
           </div>
 
           <nav className='navbar'>
-            <Link className={`navbarBtn ${isHomePage ? "chosen" : ""}`} to="/" onClick={() => { handlePage("home") }}>Home</Link>
-            <p className='navbarBtn' onClick={openDownload}>Download</p>
-            <Link className={`navbarBtn ${isAboutPage ? "chosen" : ""}`} to="/about" onClick={() => { handlePage("about") }}>About us</Link>
-            <Link className={`navbarBtn ${isContactPage ? "chosen" : ""}`} to="/contact" onClick={() => { handlePage("contact") }} >Contact</Link>
+            <Link className={`navbarBtn ${isHomePage ? "chosen" : ""}`} to="/" onClick={() => { handlePage("home") }}><i className="fas fa-home mobileIcon"></i><p className='desktopText'>Home</p></Link>
+            <p className='navbarBtn' onClick={openDownload}><i className="fas fa-download mobileIcon"></i><span className='desktopText'>Download</span></p>
+            <Link className={`navbarBtn ${isAboutPage ? "chosen" : ""}`} to="/about" onClick={() => { handlePage("about") }}><i className="fas fa-address-card mobileIcon"></i><p className='desktopText'>About us</p></Link>
+            <Link className={`navbarBtn ${isContactPage ? "chosen" : ""}`} to="/contact" onClick={() => { handlePage("contact") }} ><i className="fas fa-envelope-open-text mobileIcon"></i><p className='desktopText'>Contact</p></Link>
             <p className='navbarBtn specNavbarBtn' onClick={openLogin}>
               {serverState ? "Go to System" : "Connecting to server"}
             </p>
@@ -144,7 +144,7 @@ const App: React.FC = () => {
       )}
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage loginFunc={openLogin} />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/main" element={<MainPage />}></Route>

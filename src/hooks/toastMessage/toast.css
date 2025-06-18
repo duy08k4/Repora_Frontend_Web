@@ -29,22 +29,33 @@
 .toast.s {
     border-bottom: 5px solid lime;
 
-    i {color: lime !important;}
+    i {
+        color: lime !important;
+    }
 }
 
 .toast.e {
     border-bottom: 5px solid red;
-    i {color: red !important;}
+
+    i {
+        color: red !important;
+    }
 }
 
 .toast.w {
     border-bottom: 5px solid orange;
-    i {color: orange !important;}
+
+    i {
+        color: orange !important;
+    }
 }
 
 .toast.i {
     border-bottom: 5px solid aqua;
-    i {color: aqua !important;}
+
+    i {
+        color: aqua !important;
+    }
 }
 
 .toast__iconBox {
@@ -75,16 +86,56 @@
     0% {
         transform: translateX(0);
     }
-    
+
     10% {
         transform: translateX(-115%);
     }
-    
+
     90% {
         transform: translateX(-115%);
     }
-    
+
     100% {
         transform: translateX(0);
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .toastContainer {
+        z-index: 3000;
+        position: absolute;
+        top: 20px;
+        left: 100%;
+        height: fit-content;
+        width: 80% !important;
+        gap: 20px;
+    }
+
+    .toast {
+        height: 60px;
+        width: 100%;
+        transform: translateX(-105%) !important;
+        gap: 20px;
+        animation: showToasttMobile var(--toast-duration) ease-in forwards !important;
+
+    }
+
+    @keyframes showToasttMobile {
+        0% {
+            transform: translateX(0) !important;
+        }
+
+        10% {
+            transform: translateX(-105%) !important;
+        }
+
+        90% {
+            transform: translateX(-105%) !important;
+        }
+
+        100% {
+            transform: translateX(0) !important;
+        }
     }
 }

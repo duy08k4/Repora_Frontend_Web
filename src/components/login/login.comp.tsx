@@ -55,7 +55,34 @@ const LoginForm: React.FC<interface_Login_Props> = ({ closeLogin }) => {
     }, [])
 
     // Handler
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            handleLogin(); // Kích hoạt nút khi nhấn Enter
+        }
+    }
+
     const handleLogin = async () => {
+        const gmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/;
+        if (!inputGmail || !inputPassword) {
+            addToast({
+                typeToast: "w",
+                content: "Please fill the input",
+                duration: 3
+            })
+
+            return
+        }
+
+        if (!gmailRegex.test(inputGmail)) {
+            addToast({
+                typeToast: "w",
+                content: "Invalid email format",
+                duration: 3
+            })
+
+            return
+        }
+
         openSpinner()
         const res_loginHandler = await loginHandler({ gmail: inputGmail, password: inputPassword })
         if (res_loginHandler.status == 200) {
@@ -87,14 +114,14 @@ const LoginForm: React.FC<interface_Login_Props> = ({ closeLogin }) => {
                     <div className="loginForm__inputContainer">
                         <div className="loginForm__inputContainer--input">
                             <i className="far fa-envelope"></i>
-                            <input type="text" placeholder="Gmail..." value={inputGmail} onChange={(e) => { setInputGmail(e.target.value) }} />
+                            <input type="text" placeholder="Gmail..." onKeyDown={handleKeyDown} value={inputGmail} onChange={(e) => { setInputGmail(e.target.value) }} />
                         </div>
                     </div>
 
                     <div className="loginForm__inputContainer">
                         <div className="loginForm__inputContainer--input">
                             <i className="fas fa-fingerprint"></i>
-                            <input type="password" placeholder="Password..." value={inputPassword} onChange={(e) => { setInputPassword(e.target.value) }} />
+                            <input type="password" placeholder="Password..." onKeyDown={handleKeyDown} value={inputPassword} onChange={(e) => { setInputPassword(e.target.value) }} />
                         </div>
                     </div>
                 </div>

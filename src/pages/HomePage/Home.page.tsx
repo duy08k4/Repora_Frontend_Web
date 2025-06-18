@@ -6,11 +6,17 @@ import Footer from "../../components/footer/Footer.comp"
 
 // Import image
 import TrafficIncident from "../../assets/traffic_img.png"
+import AdminWeb from "../../assets/Repora_admin_img_Demo.png"
+import StaffMobile from "../../assets/Repora_Staff_Demo.png"
+import ReporterMobile from "../../assets/Repora_reporter_img.png"
+
+// Import interface
+import type { interface_HomePage_Props } from "../../type/interface_HomePage"
 
 // Import css
 import "./Home.page.css"
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC<interface_HomePage_Props> = ({ loginFunc }) => {
     return (
         <div className="homPage">
             <div className="homPage__element homPage__introduce">
@@ -25,7 +31,7 @@ const HomePage: React.FC = () => {
                         stay organized, and ensure timely responses from the right teams.
                     </p>
 
-                    <button>Get started</button>
+                    <button onClick={loginFunc}>Get started</button>
                 </div>
 
                 <div className="homPage__introduce__imgContainer">
@@ -38,19 +44,18 @@ const HomePage: React.FC = () => {
                 <div className="platformImgContainer">
                     <div className="platformImgContainer__element platformImgContainer--web">
                         <h2>WEB - ADMIN</h2>
-                        <img src="https://easydrawingguides.com/wp-content/uploads/2020/11/Phone-Step-10.png" alt="" />
-
+                        <img src={AdminWeb} alt="" />
                     </div>
 
                     <div className="platformImgContainer__element platformImgContainer--mobile">
                         <div className="platformImgContainer--mobile--staff">
                             <h2>MOBILE - USER</h2>
-                            <img src="https://easydrawingguides.com/wp-content/uploads/2020/11/Phone-Step-10.png" alt="" />
+                            <img src={ReporterMobile} alt="" />
                         </div>
                         
                         <div className="platformImgContainer--mobile--user">
-                            <h2>MOBILE - USER</h2>
-                            <img src="https://easydrawingguides.com/wp-content/uploads/2020/11/Phone-Step-10.png" alt="" />
+                            <h2>MOBILE - STAFF</h2>
+                            <img src={StaffMobile} alt="" />
                         </div>
 
                     </div>
