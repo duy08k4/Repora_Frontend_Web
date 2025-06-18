@@ -8,7 +8,7 @@ import Footer from "../../components/footer/Footer.comp"
 import TrafficIncident from "../../assets/traffic_img.png"
 import AdminWeb from "../../assets/Repora_admin_img_Demo.png"
 import StaffMobile from "../../assets/Repora_Staff_Demo.png"
-import ReporterMobile from "../../assets/Repora_reporter_img.png"
+import ReporterMobile from "../../assets/Repora_Reporter_img.png"
 
 // Import interface
 import type { interface_HomePage_Props } from "../../type/interface_HomePage"
